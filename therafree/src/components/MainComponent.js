@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
 import Home from './HomeComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
@@ -22,7 +23,7 @@ class Main extends Component {
         <div>
           <Switch>
               <Route exact path='/home' component={HomePage} />
-              <Route exact path='/contactus' component={Contact} />} />
+              <Route exact path='/contactus' component={Contact} />
               <Redirect to="/home" />
           </Switch>
         </div>
@@ -32,5 +33,5 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default withRouter(Main);
 
